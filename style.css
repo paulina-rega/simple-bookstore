@@ -160,7 +160,7 @@ a:hover {
     padding: 0.3em;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 750px) {
 
     .info-box{
         width: 80%;

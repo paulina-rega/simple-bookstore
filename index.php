@@ -8,9 +8,26 @@
 </head>
 <body>
 
+
+  <?php
+
+ foreach ($_GET as $key => $value) {
+  echo '<p>'.$key.'</p>';
+  foreach($value as $k => $v)
+  {
+  echo '<p>'.$k.'</p>';
+  echo '<p>'.$v.'</p>';
+  echo '<hr />';
+  }
+
+}
+
+ ?>
+
+
     <div class="container">
         <div class="title">
-            <h1><a href="#">Czytelnia.</a></h1>
+            <h1><a href="#">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
         </div>
         <div class="menu">
             <ul>
@@ -38,11 +55,11 @@
                       echo "\n";
                       echo '<img src="'. $row['img_link'] .  'alt="book cover picture" border="0">';
                       echo "\n";
-                      echo '<a href="#" class="book-title">'. $row['title'] .'</a>';
+                      echo '<a href="book-details.php?id_book='.$row['id_book'].'" class="book-title">'. $row['title'] .'</a>';
                       echo "\n";
                       echo '<p class="author-caption">'.$row['author'].'</p>';
                       echo "\n";
-                      echo '<p class="price">'.$row['price'].'</p>';
+                      echo '<p class="price">'.$row['price'].' zł</p>';
                       echo "\n";
                       echo '</div>';
                       echo "\n";

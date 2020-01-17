@@ -9,56 +9,107 @@
 </head>
 <body>
 
+
+
+
+
+
     <div class="container">
-        <div class="title"> 
-            <h1><a href="index.php" class="main-link">Czytelnia.</a></h1>
+        <div class="title">
+            <h1><a href="index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
         </div>
         <div class="menu">
             <ul>
                 <li><a href="#">Koszyk</a></li>
                 <li><a href="#">O nas</a></li>
                 <li><a href="#">Kontakt</a></li>
-                
+
             </ul>
         </div>
         <div class="main">
-            <div class="image-box">
-                <img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0">
-            </div>
-            <div class="info-box">
-                <h3>Lost Enlightenment: Central Asia's Golden Age from the Arab Conquest to Tamerlane </h3>
-                <p class="author">
-                    Anonim Niewiadomski
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p class="price">Cena: 67,90 zł</p>
-                <button class="add-to-basket">Do koszyka</button>
-                <div class="details">
-                    <table>
-                       <tr>
-                           <td class="info-table-1">okładka</td>
-                           <td>twarda</td>
-                        </tr>
-                       <tr>
-                           <td class="info-table-1">ISBN</td>
-                           <td>9780691157733</td>
-                        </tr>
-                        <tr>
-                           <td class="info-table-1">data wydania</td>
-                           <td>2012-02-12</td>
-                        </tr>
-                        <tr>
-                           <td class="info-table-1">wydawnictwo</td>
-                           <td>Rama</td>
-                        </tr>
 
-                    </table>
 
-                    
-                </div>
-                
-            </div>
-            
+          <?php
+           include 'database_connection.php';
+
+           $conn = open_connection();
+
+           $sql = "SELECT * FROM book WHERE id_book=".$_GET['id_book'];
+           $result = $conn->query($sql);
+
+
+           if ($result->num_rows > 0) {
+               // output data of each row
+               while($row = $result->fetch_assoc()) {
+                   echo '<div class="image-box">';
+                   echo "\n";
+
+                   echo '<img src="'.$row['img_link'].'" alt="book cover picture" border="0">';
+                   echo "\n";
+                   echo '</div>';
+                   echo "\n";
+                   echo '<div class="info-box">';
+                   echo "\n";
+                   echo '<h3>'. $row['title'] .'</h3>';
+
+                   echo '<p class="author">'.$row['author'].'</p>';
+                   echo "\n";
+
+                   echo '<p>'.$row['description'].'</p>';
+                   echo "\n";
+                   echo '<p class="price">'.$row['price'].' zł </p>';
+                   echo "\n";
+
+                   echo '<button class="add-to-basket">Do koszyka</button>';
+
+
+                   echo '<div class="details">';
+                   echo '<table>';
+
+                   echo '<tr>';
+                   echo '<td class="info-table-1">okładka</td>';
+                   echo '<td>'.$row['cover_type'].'</td>';
+                   echo '</tr>';
+
+
+                   echo '<tr>';
+                   echo '<td class="info-table-1">wydawnictwo</td>';
+                   echo '<td>';
+                   echo $row['publisher'];
+                   echo '</td>';
+                   echo '</tr>';
+
+                   echo '<tr>';
+                   echo '<td class="info-table-1">ISBN</td>';
+                   echo '</td>';
+                   echo '<td>'.$row['isbn_number'].'</td>';
+                   echo '</tr>';
+
+                   echo '<tr>';
+                   echo '<td class="info-table-1">data wydania</td>';
+                   echo '</td>';
+                   echo '<td>'.$row['realise_data'].'</td>';
+                   echo '</tr>';
+
+
+                   echo '</table>';
+                   echo '</div>';
+                   echo '</div>';
+                   echo "\n";
+               }
+           } else {
+               echo "0 results";
+           }
+
+           ?>
+
+
+
+
+
+
+
+
 
         </div>
     </div>
@@ -68,7 +119,7 @@
 </html>
 
 
-<!-- 
+<!--
 <a href="https://ibb.co/0qZKv07"><img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0"></a>
 <a href="https://ibb.co/8jTBYNc"><img src="https://i.ibb.co/CnNtPm2/mao.jpg" alt="mao" border="0"></a>
 <a href="https://ibb.co/VBQBC09"><img src="https://i.ibb.co/3hMhF5d/nadchodzi.jpg" alt="nadchodzi" border="0"></a>
@@ -84,9 +135,6 @@
 <div class="div1">
             <img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0">
             <p class="book-title">Lost enlightment</p>
-        </div> 
+        </div>
 
 --!>
-
-
-
