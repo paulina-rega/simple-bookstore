@@ -9,7 +9,7 @@
 <body>
 
     <div class="container">
-        <div class="title"> 
+        <div class="title">
             <h1><a href="#">Czytelnia.</a></h1>
         </div>
         <div class="menu">
@@ -17,46 +17,45 @@
                 <li><a href="#">Koszyk</a></li>
                 <li><a href="#">O nas</a></li>
                 <li><a href="#">Kontakt</a></li>
-                
+
             </ul>
         </div>
         <div class="main">
-            <div class="book-box">
-                <img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0">
-                <a href="#" class="book-title">Lost enlightment</a>
-                <p class="author-caption">Lorem ipsum</p>
-                <p class="price">49.90</p>
-            </div> 
-            <div class="book-box">
-                <img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0">
-                <a href="#" class="book-title">Lost enlightment</a>
-                <p class="author-caption">Lorem ipsum</p>
-                <p class="price">49.90</p>
-            </div> 
-            <div class="book-box">
-                <img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0">
-                <a href="#" class="book-title">Lost enlightment</a>
-                <p class="author-caption">Lorem ipsum</p>
-                <p class="price">49.90</p>
-            </div> 
-                        <div class="book-box">
-                <img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0">
-                <a href="#" class="book-title">Lost enlightment</a>
-                <p class="author-caption">Lorem ipsum</p>
-                <p class="price">49.90</p>
-            </div> 
-            <div class="book-box">
-                <img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0">
-                <a href="#" class="book-title">Lost enlightment</a>
-                <p class="author-caption">Lorem ipsum</p>
-                <p class="price">49.90</p>
-            </div> 
-            <div class="book-box">
-                <img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0">
-                <a href="#" class="book-title">Lost enlightment</a>
-                <p class="author-caption">Lorem ipsum</p>
-                <p class="price">49.90</p>
-            </div> 
+
+
+             <?php
+              include 'database_connection.php';
+
+              $conn = open_connection();
+
+              $sql = "SELECT id_book, title, price, author, img_link FROM book";
+              $result = $conn->query($sql);
+
+              if ($result->num_rows > 0) {
+                  // output data of each row
+                  while($row = $result->fetch_assoc()) {
+                      echo '<div class="book-box">';
+                      echo "\n";
+                      echo '<img src="'. $row['img_link'] .  'alt="book cover picture" border="0">';
+                      echo "\n";
+                      echo '<a href="#" class="book-title">'. $row['title'] .'</a>';
+                      echo "\n";
+                      echo '<p class="author-caption">'.$row['author'].'</p>';
+                      echo "\n";
+                      echo '<p class="price">'.$row['price'].'</p>';
+                      echo "\n";
+                      echo '</div>';
+                      echo "\n";
+
+                  }
+              } else {
+                  echo "0 results";
+              }
+
+              ?>
+
+
+
         </div>
     </div>
 
@@ -65,7 +64,7 @@
 </html>
 
 
-<!-- 
+<!--
 <a href="https://ibb.co/0qZKv07"><img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0"></a>
 <a href="https://ibb.co/8jTBYNc"><img src="https://i.ibb.co/CnNtPm2/mao.jpg" alt="mao" border="0"></a>
 <a href="https://ibb.co/VBQBC09"><img src="https://i.ibb.co/3hMhF5d/nadchodzi.jpg" alt="nadchodzi" border="0"></a>
@@ -79,6 +78,3 @@
 
 
 --!>
-
-
-
