@@ -1,6 +1,9 @@
 <?php
-session_start();
+include 'session_support.php';
+include 'database_connection.php';
+init_cart();
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,18 +13,13 @@ session_start();
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-
-
-
-
     <div class="container">
         <div class="title">
             <h1><a href="#">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#">Koszyk</a></li>
+                <li><a href="/zadanie2/cart-details.php">Koszyk</a></li>
                 <li><a href="#">O nas</a></li>
                 <li><a href="#">Kontakt</a></li>
 
@@ -31,7 +29,7 @@ session_start();
 
 
              <?php
-              include 'database_connection.php';
+
 
               $conn = open_connection();
 
@@ -45,7 +43,7 @@ session_start();
                       echo "\n";
                       echo '<img src="'. $row['img_link'] .  'alt="book cover picture" border="0">';
                       echo "\n";
-                      echo '<a href="book-details.php?id_book='.$row['id_book'].'" class="book-title">'. $row['title'] .'</a>';
+                      echo '<a href="/zadanie2/book-details.php?id_book='.$row['id_book'].'" class="book-title">'. $row['title'] .'</a>';
                       echo "\n";
                       echo '<p class="author-caption">'.$row['author'].'</p>';
                       echo "\n";
