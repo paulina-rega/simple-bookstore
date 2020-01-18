@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,20 +12,7 @@
 <body>
 
 
-  <?php
 
- foreach ($_GET as $key => $value) {
-  echo '<p>'.$key.'</p>';
-  foreach($value as $k => $v)
-  {
-  echo '<p>'.$k.'</p>';
-  echo '<p>'.$v.'</p>';
-  echo '<hr />';
-  }
-
-}
-
- ?>
 
 
     <div class="container">
@@ -79,19 +69,3 @@
 
 </body>
 </html>
-
-
-<!--
-<a href="https://ibb.co/0qZKv07"><img src="https://i.ibb.co/BLjGFhp/enlightment.jpg" alt="enlightment" border="0"></a>
-<a href="https://ibb.co/8jTBYNc"><img src="https://i.ibb.co/CnNtPm2/mao.jpg" alt="mao" border="0"></a>
-<a href="https://ibb.co/VBQBC09"><img src="https://i.ibb.co/3hMhF5d/nadchodzi.jpg" alt="nadchodzi" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/vYS6M6H/obcy.jpg" alt="obcy" border="0"></a>
-<a href="https://ibb.co/3MyJqR5"><img src="https://i.ibb.co/wwNvXcZ/nieznane.jpg" alt="nieznane" border="0"></a>
-<a href="https://ibb.co/7kJvQ8v"><img src="https://i.ibb.co/TWBc1pc/kapitalizm.jpg" alt="kapitalizm" border="0"></a>
-<a href="https://ibb.co/mBKZ8v3"><img src="https://i.ibb.co/th6jXZ9/sledztwo.jpg" alt="sledztwo" border="0"></a>
-<a href="https://ibb.co/sF6QJGS"><img src="https://i.ibb.co/LCJ6hWw/kolej.jpg" alt="kolej" border="0"></a>
-<a href="https://ibb.co/0BCKyjW"><img src="https://i.ibb.co/bHsF5gy/cixi.jpg" alt="cixi" border="0"></a>
-
-
-
---!>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,7 +63,19 @@
                    echo '<p class="price">'.$row['price'].' zł </p>';
                    echo "\n";
 
-                   echo '<button class="add-to-basket">Do koszyka</button>';
+
+
+
+                   echo '<form method="post">';
+
+                   echo '<input type="submit" name="button"
+                               class="add-to-basket" value="Do koszyka" />
+                   </form>';
+
+
+
+
+//                   echo '<button class="add-to-basket">Do koszyka</button>';
 
 
                    echo '<div class="details">';

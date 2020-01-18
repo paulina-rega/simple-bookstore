@@ -123,6 +123,7 @@ a:hover {
     text-align: left;
     align-self: flex-start;
     margin-top: 2em;
+
 }
 
 .author {
@@ -160,7 +161,7 @@ a:hover {
     padding: 0.3em;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 870px) {
 
     .info-box{
         width: 80%;
