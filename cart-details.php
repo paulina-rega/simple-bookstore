@@ -45,10 +45,98 @@ init_cart();
            <td>cena</td>
            </tr>';
            $total_amount = 0;
+
+           function book_plus($book_id) {
+             echo "Dodano ".$book_id;
+             echo count($_SESSION['cart']);
+           }
+
+           function book_minus($book_id) {
+             echo "Usunięto ".$book_id;
+
+           }
+
+
            foreach ($_SESSION['cart'] as $item) {
               echo '<tr>';
               $sql = "SELECT id_book, title, price, img_link FROM book WHERE id_book=".$item['id'];
               $result = $conn->query($sql);
+
+
+
+
+
+
+
+
+              if(array_key_exists('button-plus-1', $_POST)) {
+            book_plus(1);
+            }
+            else if(array_key_exists('button-plus-2', $_POST)) {
+                book_plus(2);
+            }
+            else if(array_key_exists('button-plus-3', $_POST)) {
+                book_plus(3);
+            }
+            else if(array_key_exists('button-plus-4', $_POST)) {
+                book_id_plus(4);
+            }
+            else if(array_key_exists('button-plus-5', $_POST)) {
+                book_plus(5);
+            }
+            else if(array_key_exists('button-plus-6', $_POST)) {
+                book_plus(6);
+            }
+            else if(array_key_exists('button-plus-7', $_POST)) {
+                book_plus(7);
+            }
+            else if(array_key_exists('button-plus-8', $_POST)) {
+                book_plus(8);
+            }
+            else if(array_key_exists('button-plus-9', $_POST)) {
+                book_plus(9);
+            }
+            else if(array_key_exists('button-minus-1', $_POST)) {
+                book_minus(1);
+            }
+            else if(array_key_exists('button-minus-2', $_POST)) {
+                book_minus(2);
+            }
+            else if(array_key_exists('button-minus-3', $_POST)) {
+                book_minus(3);
+            }
+            else if(array_key_exists('button-minus-4', $_POST)) {
+                book_minus(4);
+            }
+            else if(array_key_exists('button-minus-5', $_POST)) {
+                book_minus(5);
+            }
+            else if(array_key_exists('button-minus-6', $_POST)) {
+                book_minus(6);
+            }
+            else if(array_key_exists('button-minus-7', $_POST)) {
+                book_minus(7);
+            }
+            else if(array_key_exists('button-minus-8', $_POST)) {
+                book_minus(8);
+            }
+            else if(array_key_exists('button-minus-9', $_POST)) {
+                book_minus(9);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
               while($row = $result->fetch_assoc()) {
                   $quantity = $_SESSION['cart'][$row['id_book']]['quantity'];
@@ -59,17 +147,15 @@ init_cart();
                   echo '<td>';
                   echo '<form method="post">';
 
-                  echo '<input type="submit" name="button"  value="+" />
+                  echo '<input type="submit" name="button-plus-'.$row['id_book'].'"  value="+" />';
+                  echo '<input type="submit" name="button-minus-'.$row['id_book'].'"  value="-" />
                   </form>';
                   echo'</td>';
 
 
-                  echo '<td>';
-                  echo '<form method="post">';
 
-                  echo '<input type="submit" name="button"  value="-" />
-                  </form>';
-                  echo'</td>';
+
+
                   $total_amount=$total_amount+$quantity*$row['price'];
 
                 }
