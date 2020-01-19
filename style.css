@@ -1,3 +1,6 @@
+/* INDEX and generic */
+
+
 body {
     font-family: sans-serif;
     text-align: center;
@@ -14,16 +17,17 @@ grid-row-gap: 0px;
 }
 
 .title {
-  position: relative;
+    position: relative;
     grid-area: 1 / 1 / 2 / 3;
     text-align: left;
     padding-left: 10%;
-    top: 70px;
+    height: 150px;
 }
 
 
 .title a{
     opacity: 1;
+
 }
 
 .menu {
@@ -45,6 +49,10 @@ a:hover {
     margin-top: 1em;
     font-size: 0.7em;
 
+}
+
+.menu li a {
+  padding: 2em;
 }
 
 
@@ -104,7 +112,7 @@ a:hover {
 
 
 
-
+/* BOOK DETAILS */
 
 
 .image-box {
@@ -162,6 +170,9 @@ a:hover {
 }
 
 
+/* CART DETAILS */
+
+
 .cart-title {
   width: 100%;
   text-align: center;
@@ -169,17 +180,18 @@ a:hover {
   right: 80px;
   opacity: 0.6;
 }
-.cart-margin{
-  margin-top: 20px;
-}
+
 
 .table-cart {
   font-size: 0.7em;
+  position: relative;
+  top: -100px;
+  align-self: center;
 }
 
 .table-cart td {
   margin-right: 1em;
-  max-width: 200px;
+  max-width: 300px;
   text-align: center;
   padding: 0.4em;
 }
@@ -200,9 +212,52 @@ a:hover {
 }
 
 
+
+.empty-cart-msq{
+  opacity: 0.6;
+}
+
 table .info {
   opacity: 0.5;
-  text-align: center;;
+  text-align: center;
+}
+
+.order-page-link {
+  color: black;
+  font-size: 1.2em;
+  text-align: left;
+  padding: 0.4em;
+  border-bottom: 2px solid #FEC65F;
+}
+
+
+
+/* ORDER PAGE */
+
+.order-form p{
+  opacity: 0.5;
+  font-size: 0.8em;
+  text-align: left;
+}
+
+
+.order-form input {
+  border: none;
+  border-bottom: 1px solid grey;
+  width: 270px;
+}
+
+.order-form input:active, .order-form input:focus {
+  outline: none;
+  border-color: #FEC65F;
+}
+
+
+
+.submit-button {
+  border: none;
+  margin-top: 20px;
+
 }
 
 @media (max-width: 870px) {

@@ -2,7 +2,6 @@
 include 'session_support.php';
 include 'database_connection.php';
 init_cart();
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,19 +20,11 @@ init_cart();
         <div class="menu">
             <ul>
                 <li><a href="/zadanie2/cart-details.php">Koszyk</a></li>
-                <li><a href="#">O nas</a></li>
-                <li><a href="#">Kontakt</a></li>
-
             </ul>
         </div>
         <div class="main">
-
-
              <?php
-
-
               $conn = open_connection();
-
               $sql = "SELECT id_book, title, price, author, img_link FROM book";
               $result = $conn->query($sql);
 
@@ -52,19 +43,12 @@ init_cart();
                       echo "\n";
                       echo '</div>';
                       echo "\n";
-
                   }
               } else {
                   echo "0 results";
               }
-
               ?>
-
-
-
         </div>
     </div>
-
-
 </body>
 </html>

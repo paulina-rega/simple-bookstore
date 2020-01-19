@@ -20,8 +20,7 @@ init_cart();
         <div class="menu">
             <ul>
                 <li><a href="/zadanie2/cart-details.php">Koszyk</a></li>
-                <li><a href="#">O nas</a></li>
-                <li><a href="#">Kontakt</a></li>
+
 
             </ul>
         </div>
