@@ -38,11 +38,6 @@ if(array_key_exists('button', $_POST)) {
  }
 
 
- if (isset($_POST['button'])) {
-     echo '<br />The ' . $_POST['submit'] . ' submit button was pressed<br />';
- }
-
-
 
  function add_book_to_cart() {
 
@@ -80,10 +75,9 @@ if(array_key_exists('button', $_POST)) {
                    echo '<p class="price">'.$row['price'].' zł </p>';
                    echo "\n";
 
-
-                   echo '<form method="post">';
-
-                   echo '<input type="submit" name="button"
+                   echo '<form action="" method="post">';
+                   echo '<input type="hidden" name="book-id" value="'.$_GET['id_book'].'">';
+                   echo '<input type="submit" name="button" id="button"
                                class="add-to-basket" value="Do koszyka" />
                    </form>';
 

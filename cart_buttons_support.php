@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-              if (isset($_POST['button-plus-1'])) {
+              if (isset($_POST['button-change-1'])) {
             book_plus(1);
             header("Refresh:0");
             }

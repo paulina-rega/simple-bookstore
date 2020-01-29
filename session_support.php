@@ -14,6 +14,7 @@ function init_cart() {
 
 function book_plus($book_id) {
   $_SESSION['cart'][$book_id]['quantity']++;
+  header("Refresh:0");
 
 
 }
@@ -21,9 +22,11 @@ function book_plus($book_id) {
 function book_minus($book_id) {
   if ($_SESSION['cart'][$book_id]['quantity']>1) {
     $_SESSION['cart'][$book_id]['quantity']--;
+    header("Refresh:0");
   }
   else {
     unset($_SESSION['cart'][$book_id]);
+    header("Refresh:0");
   }
 }
 

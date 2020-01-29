@@ -36,8 +36,18 @@ init_cart();
 
              echo '<table class ="table-cart cart-margin">';
              echo '<tr><td colspan="5"><h3 class="cart-title"><br/><br/>Koszyk</h3></td></tr>';
+
              $conn = open_connection();
-             include 'cart_buttons_support.php';
+             if (isset($_POST['button-change'])) {
+                 if ($_POST['button-change']=='+') {
+                   book_plus($_POST['book-id']);
+                 }
+                 else if ($_POST['button-change']=='-'){
+                   book_minus($_POST['book-id']);
+                 }
+             }
+
+
 
               echo '<tr class="info">
               <td><p></p></td>
@@ -58,9 +68,9 @@ init_cart();
                       echo '<td>'.$row['price']*$quantity.' zł</td>';
                       echo '<td>';
                       echo '<form method="post">';
-
-                      echo '<input type="submit" name="button-plus-'.$row['id_book'].'"  value="+" />';
-                      echo '<input type="submit" name="button-minus-'.$row['id_book'].'"  value="-" />
+                      echo '<input type="hidden" name="book-id" value="'.$row['id_book'].'">';
+                      echo '<input type="submit" name="button-change"  value="+" />';
+                      echo '<input type="submit" name="button-change"  value="-" />
                       </form>';
                       echo'</td>';
                       $total_amount=$total_amount+$quantity*$row['price'];
@@ -72,15 +82,8 @@ init_cart();
                echo '<tr><td colspan="6"><a href="/zadanie3/order-page.php" class="order-page-link"> Złóż zamówienie </a></td></tr>';
                echo '</table>';
 
-
            }
-
-
         ?>
-
-
-
-
 
 
 
