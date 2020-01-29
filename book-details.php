@@ -15,11 +15,11 @@ init_cart();
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="/zadanie2/index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
+            <h1><a href="/zadanie3/index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="/zadanie2/cart-details.php">Koszyk</a></li>
+                <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
 
 
             </ul>
@@ -36,6 +36,14 @@ $result = $conn->query($sql);
 if(array_key_exists('button', $_POST)) {
     add_book_to_cart();
  }
+
+
+ if (isset($_POST['button'])) {
+     echo '<br />The ' . $_POST['submit'] . ' submit button was pressed<br />';
+ }
+
+
+
  function add_book_to_cart() {
 
     if (isset($_SESSION['cart'][$_GET['id_book']])) {
@@ -71,8 +79,6 @@ if(array_key_exists('button', $_POST)) {
                    echo "\n";
                    echo '<p class="price">'.$row['price'].' zł </p>';
                    echo "\n";
-
-
 
 
                    echo '<form method="post">';

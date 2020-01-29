@@ -173,13 +173,7 @@ a:hover {
 /* CART DETAILS */
 
 
-.cart-title {
-  width: 100%;
-  text-align: center;
-  position: relative;
-  right: 80px;
-  opacity: 0.6;
-}
+
 
 
 .table-cart {
@@ -205,6 +199,14 @@ a:hover {
   height:100px;
   width: 70px;
   padding: 10px;
+}
+
+
+
+.cart-title {
+  text-align: left;
+  position: relative;
+  opacity: 0.5;
 }
 
 .book-quantity {
@@ -242,8 +244,10 @@ table .info {
 
 
 .order-form input {
+  opacity: 0.8;
   border: none;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid;;
+  border-color: gray;
   width: 270px;
 }
 

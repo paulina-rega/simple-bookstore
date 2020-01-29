@@ -15,41 +15,40 @@ init_cart();
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="#">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
+            <h1><a href="/zadanie3/index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="/zadanie2/index.php">Strona głowna</a></li>
+                <li><a href="/zadanie3/index.php">Strona główna</a></li>
             </ul>
         </div>
         <div class="main">
              <?php
               $conn = open_connection();
 
-
-              if(isset($_POST['submit'])){
-                ini_set("SMTP","aspmx.l.google.com");
-                  $to = "paulina.m.rega@gmail.com"; // this is your Email address
-                  $from= $_POST['email']; // this is the sender's Email address
-                  $name = $_POST['firstname'].' '.$_POST['lastname'];
-                  $address1 = $_POST['street'].' '.$_POST['house_number'].'/'.$_POST['apartment_number'];
-                  $address2 = $_POST['city'].' '.$_POST['postcode'];
-                  $address = $address1."\n".$address2;
-                  $number = $_POST['telephone'];
-                  $message = $name ."\n\n" . $address."\n\n Telefon: ".$number;
-
-                  echo $message;
-                  $headers = "Order from:" . $from;
-                  mail($to,$subject,$message,$headers);
-
-                  echo "Mail Sent. Thank you " . $name . ", we will contact you shortly.";
-                  // You can also use header('Location: thank_you.php'); to redirect to another page.
-                  }
-
-
+              if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_POST['btnsubmit'])) {
+                    $to = "paulina.m.rega@gmail.com";
+                    $from= $_POST['email'];
+                    $name = $_POST['firstname'].' '.$_POST['lastname'];
+                    $address1 = $_POST['street'].' '.$_POST['house_number'].'/'.$_POST['apartment_number'];
+                    $address2 = $_POST['city'].' '.$_POST['postcode'];
+                    $address = $address1."\n".$address2;
+                    $number = $_POST['telephone'];
+                    $message = $name ."\n\n" . $address."\n\n Telefon: ".$number;
+                    $message = $message."\n";
+                    echo $message;
+                    foreach ($_SESSION['cart'] as $item) {
+                        $message=$message."ID produktu: ".$item['id'].", ilosc: ".$item['quantity']."\n";
+                    }
+                    $headers = "Order from:" . $from;
+                    mail($to,$subject,$message,$headers);
+                    $_SESSION['cart'] = array();
+                    header('Location: /zadanie3/order-completed.php');
+                    }
+              }
               ?>
-
-              <form class="order-form" action:"" method:"post" enctype="text/plain">
+              <form class="order-form" method="post">
                 <p>imię</p>
                 <input type ="text" name="firstname" required maxlength="50">
                 <p>nazwisko</p>
@@ -63,15 +62,13 @@ init_cart();
                 <p>numer domu</p>
                 <input type="text" name="house_number" required maxlength="10">
                 <p>numer mieszkania</p>
-                <input type="text" name="apartment_number" maxlength="10" class="basic-input">
+                <input type="text" name="apartment_number" maxlength="10" class="basic-input" required>
                 <p>miejscowość</p>
                 <input type="text" name="city" maxlength="30" required>
                 <p>kod pocztowy</p>
                 <input type="text" name="postcode" required pattern="[0-9]{2}-[0-9]{3}"><br/>
-                <input type="submit" value="Zamów" class="submit-button">
+                <input type="submit" name="btnsubmit" value="Zamów" class="submit-button">
               </form>
-
-
 
         </div>
     </div>

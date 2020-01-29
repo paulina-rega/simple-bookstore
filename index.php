@@ -19,7 +19,7 @@ init_cart();
         </div>
         <div class="menu">
             <ul>
-                <li><a href="/zadanie2/cart-details.php">Koszyk</a></li>
+                <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
             </ul>
         </div>
         <div class="main">
@@ -35,7 +35,7 @@ init_cart();
                       echo "\n";
                       echo '<img src="'. $row['img_link'] .  'alt="book cover picture" border="0">';
                       echo "\n";
-                      echo '<a href="/zadanie2/book-details.php?id_book='.$row['id_book'].'" class="book-title">'. $row['title'] .'</a>';
+                      echo '<a href="/zadanie3/book-details.php?id_book='.$row['id_book'].'" class="book-title">'. $row['title'] .'</a>';
                       echo "\n";
                       echo '<p class="author-caption">'.$row['author'].'</p>';
                       echo "\n";
