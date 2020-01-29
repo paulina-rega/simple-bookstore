@@ -4,12 +4,22 @@ function init_cart() {
   {
       session_start();
   }
-
   if (empty($_SESSION))  {
     $_SESSION['cart'] = array();
 
   };
 }
+
+
+function init_admin_session() {
+  if(!session_id())
+  {
+      session_start();
+  }
+}
+
+
+
 
 
 function book_plus($book_id) {

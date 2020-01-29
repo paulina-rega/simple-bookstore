@@ -21,7 +21,6 @@ init_cart();
             <ul>
                 <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
 
-
             </ul>
         </div>
 
@@ -36,7 +35,6 @@ $result = $conn->query($sql);
 if(array_key_exists('button', $_POST)) {
     add_book_to_cart();
  }
-
 
 
  function add_book_to_cart() {

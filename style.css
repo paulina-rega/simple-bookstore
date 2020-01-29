@@ -264,6 +264,19 @@ table .info {
 
 }
 
+
+
+
+/* ADMIN */
+.admin-table, .admin-table td, .admin-table tr{
+  border: 1px solid black;
+}
+
+.admin-edit-p {
+  text-align: left;
+  font-size: 0.9em;
+}
+
 @media (max-width: 870px) {
 
     .info-box{
