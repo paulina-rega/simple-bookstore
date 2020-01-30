@@ -3,7 +3,13 @@ include 'session_support.php';
 include 'database_connection.php';
 include 'login_support.php';
 init_cart();
+
+
+
 ?>
+
+
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,15 +22,31 @@ init_cart();
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href=="/zadanie3/index.php">>Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
+            <h1><a href="#">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
         </div>
         <div class="menu">
             <ul>
+                <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
                 <li><a href="/zadanie3/index.php">Strona głowna</a></li>
+                <li><a href="/zadanie3/register.php">Zarejestruj się</a></li>
             </ul>
         </div>
         <div class="main">
-            <h4>Ups, coś jest nie tak :( </br> W razie pytań skontaktuj sie z info@example.pl</h4>
+          <div>
+            <h4>Logowanie</h4>
+            <form class="order-form" method="POST">
+              <p>Login</p>
+              <input type="text" name ="email" value="">
+              <p>hasło</p>
+              <input type="password" value="">
+              <br><br>
+              <input type="submit" name="button" value="Zaloguj">
+            </form>
+          <div>
+             <?php
+              $conn = open_connection();
+
+              ?>
         </div>
     </div>
 </body>

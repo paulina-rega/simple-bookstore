@@ -1,6 +1,7 @@
 <?php
 include 'session_support.php';
 include 'database_connection.php';
+include 'login_support.php';
 init_cart();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,7 +21,15 @@ init_cart();
         <div class="menu">
             <ul>
                 <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
-
+                <?php
+                  if (!isset($_SESSION['user_id'])) {
+                    echo '<li><a href="/zadanie3/register.php">Zarejestruj się</a></li>';
+                    echo '<li><a href="/zadanie3/login.php">Zaloguj się</a></li>';
+                  }
+                  else {
+                    echo '<li><a href="/zadanie3/login.php">Wyloguj się</a></li>';
+                  }
+                ?>
             </ul>
         </div>
 

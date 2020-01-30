@@ -20,8 +20,6 @@ function init_admin_session() {
 
 
 
-
-
 function book_plus($book_id) {
   $_SESSION['cart'][$book_id]['quantity']++;
   header("Refresh:0");
