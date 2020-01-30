@@ -2,6 +2,7 @@
 include 'session_support.php';
 include 'database_connection.php';
 init_admin_session();
+$_SESSION = array();
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
           if (password_verify($pass,$row['admin_password'])) {
-            echo "jest taki uzytkownik";
+            $_SESSION = array();
             $_SESSION['user'] = admin;
             header('Location: /zadanie3/admin-logged-in.php');
           }
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="#">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
+            <h1><a href="#">Czytelnia<span style="color:#FEC65F;">.</span>admin</a></h1>
         </div>
         <div class="menu">
         </div>

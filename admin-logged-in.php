@@ -4,6 +4,7 @@ include 'database_connection.php';
 include 'login_support.php';
 init_admin_session();
 check_if_admin_is_logged($_SESSION["user"]);
+unset($_SESSION['to_edit']);
 ?>
 
 
@@ -18,21 +19,35 @@ check_if_admin_is_logged($_SESSION["user"]);
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="#">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
+            <h1><a href="/zadanie3/admin-logged-in.php">Czytelnia<span style="color:#FEC65F;">.</span>admin</a></h1>
         </div>
         <div class="menu">
+          <ul>
+              <li><a href="/zadanie3/admin-page.php">Wyloguj</a></li>
+          </ul>
         </div>
         <div class="main">
           <div>
             <h3>Część administracyjna</h3>
             <p>Baza produktów:</p>
             <table class="admin-table">
+              <tr>
+                <td>id</td>
+                <td>tytuł</td>
+                <td>cena</td>
+                <td>link</td>
+                <td>detale</td>
+              </tr>
               <?php
 
               if (isset($_POST['button-edit'])) {
                 echo $_POST['book-id'];
                 $_SESSION['to_edit'] = $_POST['book-id'];
                 header('Location: /zadanie3/admin-logged-in-edit.php');
+              }
+
+              if (isset($_POST['button-add'])) {
+                header('Location: /zadanie3/admin-logged-in-add.php');
               }
 
 
@@ -49,7 +64,7 @@ check_if_admin_is_logged($_SESSION["user"]);
                   echo '<td style="border: 1px solid black">';
                     echo '<form method="POST">';
                     echo '<input type="hidden" name="book-id" value="'.$row['id_book'].'">';
-                    echo '<input type="submit" name="button-edit"  value="Edit" />';
+                    echo '<input type="submit" name="button-edit"  value="Edycja" />';
                     echo '</form>';
                   echo'</td>';
                 echo '</tr>';

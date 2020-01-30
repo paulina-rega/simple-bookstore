@@ -18,40 +18,99 @@ check_if_admin_is_logged($_SESSION["user"]);
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="#">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
+            <h1><a href="/zadanie3/admin-logged-in.php">Czytelnia<span style="color:#FEC65F;">.</span>admin</a></h1>
         </div>
         <div class="menu">
+          <ul>
+              <li><a href="/zadanie3/admin-page.php">Wyloguj</a></li>
+          </ul>
         </div>
         <div class="main">
           <div>
             <h3>Część administracyjna</h3>
-            <?php
+            <?
+
+
+
+
+
+
             $conn = open_connection();
             $sql = 'SELECT * FROM book WHERE id_book="'.$_SESSION['to_edit'].'";';
             $result = $conn->query($sql);
+
+            if (isset($_POST['button-confirm'])) {
+              $book_id = $_SESSION['to_edit'];
+              $sql = "UPDATE book SET
+                      title = '". $_POST['title']."',
+                      price = '".$_POST['price']."',
+                      description = '".$_POST['description']."',
+                      author = '".$_POST['author']."',
+                      realise_data = '".$_POST['rdate']."',
+                      isbn_number = '".$_POST['isbn']."',
+                      cover_type = '".$_POST['cover']."',
+                      publisher = '".$_POST['publisher']."',
+                      img_link = '".$_POST['link']."'
+                      WHERE id_book='" .$book_id."';";
+
+                      $is_executed = $conn->query($sql);
+
+                      if ($is_executed) {
+                        header("Refresh:0");
+                      }
+                      else {
+                        echo "Ups, coś poszło nie tak. Spróbuj ponownie.";
+                      }
+            }
+
+
+            if (isset($_POST['button-back'])) {
+              header('Location: /zadanie3/admin-logged-in.php');
+            }
+
+            if (isset($_POST['button-delete'])) {
+              $book_id = $_SESSION['to_edit'];
+              $sql = "DELETE FROM book WHERE id_book='".$book_id."';";
+
+              $is_executed = $conn->query($sql);
+
+              if ($is_executed) {
+                header('Location: /zadanie3/admin-logged-in.php');
+              }
+              else {
+                echo "Ups, coś poszło nie tak.";
+              }
+
+            }
+
             if ($result->num_rows == 1) {
               $row = $result->fetch_assoc();
               echo '<form method="POST">';
               echo '<p class="admin-edit-p">Tytuł:</p>';
-              echo '<input style="width: 400px; height: auto;"type = "textarea" required maxlength="100" value="'.$row['title'].'">';
+              echo '<input name="title" style="width: 400px; height: auto;"type = "textarea" required maxlength="100" value="'.$row['title'].'">';
               echo '<p class="admin-edit-p">Cena:</p>';
-              echo '<input style="width: 400px" type="number" step="0.01" required value="'.$row['price'].'">';
+              echo '<input name="price" style="width: 400px" type="number" step="0.01" required value="'.$row['price'].'">';
               echo '<p class="admin-edit-p">Wydawnictwo:</p>';
-              echo '<input style="width: 400px"type = "text" required maxlength="40" value="'.$row['publisher'].'">';
+              echo '<input name="publisher" style="width: 400px"type = "text" required maxlength="40" value="'.$row['publisher'].'">';
               echo '<p class="admin-edit-p">Opis:</p>';
-              echo '<input style="width: 400px;"type = "textarea" required maxlength="500" value="'.$row['description'].'">';
+              echo '<input name="description" style="width: 400px;"type = "textarea" required maxlength="500" value="'.$row['description'].'">';
               echo '<p class="admin-edit-p">Autor:</p>';
-              echo '<input style="width: 400px"type = "text" required maxlength="100" value="'.$row['author'].'">';
+              echo '<input name="author" style="width: 400px"type = "text" required maxlength="100" value="'.$row['author'].'">';
               echo '<p class="admin-edit-p">Data wydania:</p>';
-              echo '<input style="width: 400px"type = "date" pattern="^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$" required value="'.$row['realise_data'].'">';
+              echo '<input name="rdate" style="width: 400px"type = "date" pattern="^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$" required value="'.$row['realise_data'].'">';
               echo '<p class="admin-edit-p">ISBN:</p>';
-              echo '<input style="width: 400px"type = "text" required maxlength="13" value="'.$row['isbn_number'].'">';
+              echo '<input name="isbn" style="width: 400px"type = "text" required maxlength="13" value="'.$row['isbn_number'].'">';
               echo '<p class="admin-edit-p">Okładka:</p>';
-              echo '<input style="width: 400px"type = "text" required maxlength="15" value="'.$row['cover_type'].'">';
+              echo '<input name="cover" style="width: 400px"type = "text" required maxlength="15" value="'.$row['cover_type'].'">';
               echo '<p class="admin-edit-p">Link do obrazka:</p>';
-              echo '<input style="width: 400px"type = "text" required maxlength="300" value="'.$row['img_link'].'">';
+              echo '<input  name="link" style="width: 400px"type = "text" required maxlength="300" value="'.$row['img_link'].'">';
               echo '<p></p>';
-              echo '<input type="submit" name="button"  value="Zapisz" />';
+              echo '<input type="submit" name="button-confirm"  value="Zapisz"/>';
+              echo '<p></p>';
+              echo '<input type="submit" name="button-back"  value="Wróć" />';
+              echo '<p></p>';
+              echo '<p></p>';
+              echo '<input style="float: left; margin-top: 20px; color:red"type="submit" name="button-delete"  value="Usuń" />';
               echo '</form>';
             }
             else {
