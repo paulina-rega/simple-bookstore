@@ -27,4 +27,14 @@
       return TRUE;
     }
   }
+
+  function register_user($login, $email, $password, $conn) {
+    echo "Rejestracja";
+    $pass = password_hash($password, PASSWORD_DEFAULT);
+    echo $pass;
+
+    // TUTAJ SKONCZONE
+    $sql = "INSERT INTO user (login, email, usr_password) VALUES ('".$login."', '". $email . "', '".$pass."');";
+  }
+
  ?>

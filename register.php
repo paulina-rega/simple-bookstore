@@ -40,7 +40,7 @@ init_cart();
               <p>email</p>
               <input type="email" maxlength="255" name ="email" value="" required>
               <p>hasło</p>
-              <input type="password" minlength="8" maxlength="30" value="" required>
+              <input type="Password" name="password" minlength="8" maxlength="30"  required>
               <br><br>
               <input type="submit" name="button" value="Utwórz konto">
             </form>
@@ -53,7 +53,7 @@ init_cart();
          if (isset($_POST['button'])) {
            $login = $_POST['login'];
            if (check_if_login_is_available($login, $conn)) {
-             echo "jest availabe";
+             register_user($_POST['login'], $_POST['email'], $_POST['password'], $conn);
            }
            else {
              echo "<br><br><h5>Ups! Wygląda na to, że login jest zajęty. Spróbuj jeszcze raz.</h5>";
