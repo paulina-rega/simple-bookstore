@@ -25,7 +25,7 @@ init_cart();
         </div>
         <div class="menu">
             <ul>
-                <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
+                <li><a href="cart-details.php">Koszyk</a></li>
 
                 <?php
                   if (!isset($_SESSION['user'])) {

@@ -22,13 +22,13 @@ init_cart();
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="/zadanie3/index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
+            <h1><a href="index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
-                <li><a href="/zadanie3/index.php">Strona głowna</a></li>
-                <li><a href="/zadanie3/login.php">Zaloguj się</a></li>
+                <li><a href="cart-details.php">Koszyk</a></li>
+                <li><a href="index.php">Strona głowna</a></li>
+                <li><a href="login.php">Zaloguj się</a></li>
             </ul>
         </div>
         <div class="main">

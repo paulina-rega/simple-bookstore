@@ -16,18 +16,18 @@ init_cart();
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="/zadanie3/index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
+            <h1><a href="index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
+                <li><a href="cart-details.php">Koszyk</a></li>
                 <?php
                   if (!isset($_SESSION['user'])) {
-                    echo '<li><a href="/zadanie3/register.php">Zarejestruj się</a></li>';
-                    echo '<li><a href="/zadanie3/login.php">Zaloguj się</a></li>';
+                    echo '<li><a href="register.php">Zarejestruj się</a></li>';
+                    echo '<li><a href="login.php">Zaloguj się</a></li>';
                   }
                   else {
-                    echo '<li><a href="/zadanie3/user_account.php">Twoje konto</a></li>';
+                    echo '<li><a href="user_account.php">Twoje konto</a></li>';
                   }
                 ?>
             </ul>

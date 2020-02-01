@@ -2,13 +2,13 @@
 
   function check_if_admin_is_logged($user) {
     if(!isset($user)) {
-      header('Location: /zadanie3/admin-page.php');
+      header('Location: admin-page.php');
     }
   }
 
   function check_if_user_is_logged($user) {
     if(!isset($user)) {
-      header('Location: /zadanie3/index.php');
+      header('Location: index.php');
     }
   }
 

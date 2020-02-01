@@ -16,18 +16,18 @@ init_cart();
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="/zadanie3/index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
+            <h1><a href="index.php">Czytelnia<span style="color:#FEC65F;">.</span></a></h1>
         </div>
         <div class="menu cart-margin">
           <ul>
-              <li><a href="/zadanie3/index.php">Strona główna</a></li>
+              <li><a href="index.php">Strona główna</a></li>
               <?php
                 if (!isset($_SESSION['user'])) {
-                  echo '<li><a href="/zadanie3/register.php">Zarejestruj się</a></li>';
-                  echo '<li><a href="/zadanie3/login.php">Zaloguj się</a></li>';
+                  echo '<li><a href="register.php">Zarejestruj się</a></li>';
+                  echo '<li><a href="login.php">Zaloguj się</a></li>';
                 }
                 else {
-                  echo '<li><a href="/zadanie3/user_account.php">Twoje konto</a></li>';
+                  echo '<li><a href="user_account.php">Twoje konto</a></li>';
                 }
               ?>
           </ul>
@@ -89,7 +89,7 @@ init_cart();
                echo '</tr>';
                echo '<tr><td></td><td></td><td colspan="2" text-align="right">łącznie</td>';
                echo '<td>'.$total_amount.' zł</td></tr>';
-               echo '<tr><td colspan="6"><a href="/zadanie3/order-page.php" class="order-page-link"> Złóż zamówienie </a></td></tr>';
+               echo '<tr><td colspan="6"><a href="order-page.php" class="order-page-link"> Złóż zamówienie </a></td></tr>';
                echo '</table>';
 
            }
