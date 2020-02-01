@@ -1,7 +1,10 @@
 <?php
 include 'session_support.php';
 include 'database_connection.php';
+include 'login_support.php';
 init_cart();
+
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,7 +26,18 @@ init_cart();
             </ul>
         </div>
         <div class="main">
-            <h4>Zamówienie złożone i niedługo je do ciebie wyślemy!</br> W razie pytań skontaktuj sie z info@example.pl</h4>
+
+            <?php
+            if (sizeof($_SESSION['cart'])>0) {
+              $_SESSION['cart'] = array();
+              echo "<h4>Zamówienie złożone i niedługo je do ciebie wyślemy!</br> W razie pytań skontaktuj sie z info@example.pl</h4>";
+            }
+            else {
+              echo "<h4>Ale przeciez Twój koszyk był pusty :( </h4>";
+            }
+
+             ?>
+            
         </div>
     </div>
 </body>

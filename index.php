@@ -5,7 +5,6 @@ include 'login_support.php';
 init_cart();
 
 
-
 ?>
 
 
@@ -29,12 +28,12 @@ init_cart();
                 <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
 
                 <?php
-                  if (!isset($_SESSION['user_id'])) {
+                  if (!isset($_SESSION['user'])) {
                     echo '<li><a href="/zadanie3/register.php">Zarejestruj się</a></li>';
                     echo '<li><a href="/zadanie3/login.php">Zaloguj się</a></li>';
                   }
                   else {
-                    echo '<li><a href="/zadanie3/login.php">Wyloguj się</a></li>';
+                    echo '<li><a href="/zadanie3/user_account.php">Twoje konto</a></li>';
                   }
                 ?>
             </ul>

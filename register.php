@@ -56,7 +56,7 @@ init_cart();
              register_user($_POST['login'], $_POST['email'], $_POST['password'], $conn);
            }
            else {
-             echo "<br><br><h5>Ups! Wygląda na to, że login jest zajęty. Spróbuj jeszcze raz.</h5>";
+             echo "<br><br><h5>Ups! Wygląda na to, że ten login jest zajęty. Spróbuj jeszcze raz.</h5>";
            }
          }
 

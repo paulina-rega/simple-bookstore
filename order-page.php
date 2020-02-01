@@ -1,7 +1,11 @@
 <?php
 include 'session_support.php';
 include 'database_connection.php';
+include 'login_support.php';
 init_cart();
+if (!isset($_SESSION['user'])) {
+  header('Location: /zadanie3/register.php');
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,25 +31,14 @@ init_cart();
               $conn = open_connection();
 
               if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                if (isset($_POST['btnsubmit'])) {
-                    $to = "paulina.m.rega@gmail.com";
-                    $from= $_POST['email'];
-                    $name = $_POST['firstname'].' '.$_POST['lastname'];
-                    $address1 = $_POST['street'].' '.$_POST['house_number'].'/'.$_POST['apartment_number'];
-                    $address2 = $_POST['city'].' '.$_POST['postcode'];
-                    $address = $address1."\n".$address2;
-                    $number = $_POST['telephone'];
-                    $message = $name ."\n\n" . $address."\n\n Telefon: ".$number;
-                    $message = $message."\n";
-                    echo $message;
-                    foreach ($_SESSION['cart'] as $item) {
-                        $message=$message."ID produktu: ".$item['id'].", ilosc: ".$item['quantity']."\n";
-                    }
-                    $headers = "Order from:" . $from;
-                    mail($to,$subject,$message,$headers);
-                    $_SESSION['cart'] = array();
-                    header('Location: /zadanie3/order-completed.php');
-                    }
+                if (isset($_POST['btnsubmit']) && isset($_SESSION['cart'])) {
+                  create_order($_SESSION['user']['user_id'], $conn, $_SESSION['cart']);
+
+                  header('Location: /zadanie3/order-completed.php');
+                }
+                else {
+                  echo "Koszyk jest pusty!";
+                }
               }
               ?>
               <form class="order-form" method="post">

@@ -28,41 +28,38 @@ init_cart();
             <ul>
                 <li><a href="/zadanie3/cart-details.php">Koszyk</a></li>
                 <li><a href="/zadanie3/index.php">Strona głowna</a></li>
-                <li><a href="/zadanie3/register.php">Zarejestruj się</a></li>
             </ul>
         </div>
         <div class="main">
           <div>
-            <h4>Logowanie</h4>
+            <?php
+              $conn = open_connection();
+              $sql = "SELECT email FROM user WHERE id_number='".$_SESSION['user']['user_id']."';";
+              $result = $conn->query($sql);
+
+              if ($result->num_rows == 1) {
+                $row = $result->fetch_assoc();
+                $email = $row['email'];
+                echo "<h5>email:</h5>";
+                echo "<p>".$email."</p>";
+                echo "<h5>login:</h5>";
+                echo "<p>".$_SESSION['user']['user_login']."</p>";
+              }
+              ?>
+
+
+
             <form class="order-form" method="POST">
-              <p>Login</p>
-              <input type="text" name ="login" value="">
-              <p>hasło</p>
-              <input type="password" name="password" value="">
-              <br><br>
-              <input type="submit" name="button" value="Zaloguj">
+              <br>
+              <input type="submit" name="button" value="Wyloguj się">
             </form>
           <div>
              <?php
-              $conn = open_connection();
-
               if (isset($_POST['button'])) {
-                $login = $_POST['login'];
-                $password = $_POST['password'];
-                if (!check_if_login_is_available($login, $conn)) {
-                  $login_output = login_user($login, $password, $conn);
-                  if ($login_output) {
-                    $_SESSION['user']=$login_output;
-                    header('Location: /zadanie3/index.php');
-                  }
-                  else {
-                    echo "<br><br><h5>Hasło niepoprawne</h5>";
-                  }
-                }
-                else {
-                  echo "<br><br><h5>Ups! Podanego loginu nie ma w bazie</h5>";
-                }
+                unset($_SESSION['user']);
+                header('Location: /zadanie3/index.php');
               }
+
               ?>
         </div>
     </div>
