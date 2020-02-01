@@ -29,11 +29,11 @@ init_cart();
 
                 <?php
                   if (!isset($_SESSION['user'])) {
-                    echo '<li><a href="/zadanie3/register.php">Zarejestruj się</a></li>';
-                    echo '<li><a href="/zadanie3/login.php">Zaloguj się</a></li>';
+                    echo '<li><a href="register.php">Zarejestruj się</a></li>';
+                    echo '<li><a href="login.php">Zaloguj się</a></li>';
                   }
                   else {
-                    echo '<li><a href="/zadanie3/user_account.php">Twoje konto</a></li>';
+                    echo '<li><a href="user_account.php">Twoje konto</a></li>';
                   }
                 ?>
             </ul>
@@ -51,7 +51,7 @@ init_cart();
                       echo "\n";
                       echo '<img src="'. $row['img_link'] .  'alt="book cover picture" border="0">';
                       echo "\n";
-                      echo '<a href="/zadanie3/book-details.php?id_book='.$row['id_book'].'" class="book-title">'. $row['title'] .'</a>';
+                      echo '<a href="book-details.php?id_book='.$row['id_book'].'" class="book-title">'. $row['title'] .'</a>';
                       echo "\n";
                       echo '<p class="author-caption">'.$row['author'].'</p>';
                       echo "\n";
