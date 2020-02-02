@@ -8,10 +8,11 @@
     $db = "heroku_08d8a5059303a4c";
     $connection = new mysqli($db_host, $db_user, $db_password, $db)
       or die("Connection failed: %s\n".$connection->error);
+    $connection->query("SET NAMES 'utf8'");
 
       return $connection;
   }
-  mysqli_query("SET NAMES 'utf8'");
+
   function close_connection($connection)
   {
     $connection -> close();
