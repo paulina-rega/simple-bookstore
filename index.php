@@ -14,8 +14,8 @@ init_cart();
 <html>
 <head>
 <title> Czytelnia </title>
-<meta http-equiv="Content-type" content="text/html">
-<meta charset="utf-8">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
 <meta name="Czytelnia" content=" [wstaw tu opis strony] ">
 <meta name="Keywords" content=" [wstaw tu slowa kluczowe] "> <meta name="Author" content=" [dane autora] ">
 <link rel="stylesheet" type="text/css" href="style.css">
