@@ -4,7 +4,7 @@ include 'database_connection.php';
 include 'login_support.php';
 init_cart();
 if (!isset($_SESSION['user'])) {
-  header('Location: /zadanie3/register.php');
+  header('Location: register.php');
 }
 ?>
 
