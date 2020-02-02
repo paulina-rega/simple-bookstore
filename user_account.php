@@ -57,7 +57,7 @@ init_cart();
              <?php
               if (isset($_POST['button'])) {
                 unset($_SESSION['user']);
-                header('Location: /zadanie3/index.php');
+                header('Location: index.php');
               }
 
               ?>
