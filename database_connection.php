@@ -11,6 +11,7 @@
 
       return $connection;
   }
+  mysqli_query("SET NAMES 'utf8'");
   function close_connection($connection)
   {
     $connection -> close();
