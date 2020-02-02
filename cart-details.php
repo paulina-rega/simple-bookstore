@@ -38,7 +38,7 @@ init_cart();
 
           <?php
 
-           if (!isset($_SESSION['cart'])) {
+           if (!isset($_SESSION['cart']['id_book'])) {
              echo '<p class="empty-cart-msq"><br/><br/><br/><br/>Koszyk jest pusty!</p>';
            }
            else {
