@@ -18,11 +18,11 @@ check_if_admin_is_logged($_SESSION["user"]);
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="/zadanie3/admin-logged-in.php">Czytelnia<span style="color:#FEC65F;">.</span>admin</a></h1>
+            <h1><a href="admin-logged-in.php">Czytelnia<span style="color:#FEC65F;">.</span>admin</a></h1>
         </div>
         <div class="menu">
           <ul>
-              <li><a href="/zadanie3/admin-page.php">Wyloguj</a></li>
+              <li><a href="admin-page.php">Wyloguj</a></li>
           </ul>
         </div>
         <div class="main">
@@ -65,7 +65,7 @@ check_if_admin_is_logged($_SESSION["user"]);
 
 
             if (isset($_POST['button-back'])) {
-              header('Location: /zadanie3/admin-logged-in.php');
+              header('Location: admin-logged-in.php');
             }
 
             if (isset($_POST['button-delete'])) {
@@ -75,7 +75,7 @@ check_if_admin_is_logged($_SESSION["user"]);
               $is_executed = $conn->query($sql);
 
               if ($is_executed) {
-                header('Location: /zadanie3/admin-logged-in.php');
+                header('Location: admin-logged-in.php');
               }
               else {
                 echo "Ups, coś poszło nie tak.";

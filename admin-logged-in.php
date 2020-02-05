@@ -19,11 +19,11 @@ unset($_SESSION['to_edit']);
 <body>
     <div class="container">
         <div class="title">
-            <h1><a href="/zadanie3/admin-logged-in.php">Czytelnia<span style="color:#FEC65F;">.</span>admin</a></h1>
+            <h1><a href="admin-logged-in.php">Czytelnia<span style="color:#FEC65F;">.</span>admin</a></h1>
         </div>
         <div class="menu">
           <ul>
-              <li><a href="/zadanie3/admin-page.php">Wyloguj</a></li>
+              <li><a href="admin-page.php">Wyloguj</a></li>
           </ul>
         </div>
         <div class="main">
@@ -43,11 +43,11 @@ unset($_SESSION['to_edit']);
               if (isset($_POST['button-edit'])) {
                 echo $_POST['book-id'];
                 $_SESSION['to_edit'] = $_POST['book-id'];
-                header('Location: /zadanie3/admin-logged-in-edit.php');
+                header('Location: admin-logged-in-edit.php');
               }
 
               if (isset($_POST['button-add'])) {
-                header('Location: /zadanie3/admin-logged-in-add.php');
+                header('Location: admin-logged-in-add.php');
               }
 
 

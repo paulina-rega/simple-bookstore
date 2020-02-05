@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           if (password_verify($pass,$row['admin_password'])) {
             $_SESSION = array();
             $_SESSION['user'] = admin;
-            header('Location: /zadanie3/admin-logged-in.php');
+            header('Location: admin-logged-in.php');
           }
           else {
             echo '<h4 style="color: red">Wprowadzono błędne dane!</h4>';
