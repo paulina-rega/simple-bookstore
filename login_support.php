@@ -1,7 +1,7 @@
 <?php
 
   function check_if_admin_is_logged($user) {
-    if(!isset($user) || $user['user_login']!='admin') {
+    if(!isset($user) && $user['user_login']!='admin') {
       header('Location: admin-page.php');
     }
   }
