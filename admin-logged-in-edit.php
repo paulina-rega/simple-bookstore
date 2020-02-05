@@ -11,7 +11,7 @@ check_if_admin_is_logged($_SESSION["user"]);
 <html>
 <head>
 <title> Czytelnia </title>
-<meta http-equiv="Content-type" content="text/html; charset=iso- 8859-2">
+<meta http-equiv="Content-type" content="text/html; charset=utf8">
 <meta name="Czytelnia" content=" Czytelnia. Księgarnia internetowa "> <meta name="Keywords" content="książki, księgarnia, sklep internetowy"> <meta name="Author" content="Paulina Rega">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
