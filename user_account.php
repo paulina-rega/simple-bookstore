@@ -3,9 +3,6 @@ include 'session_support.php';
 include 'database_connection.php';
 include 'login_support.php';
 init_cart();
-
-
-
 ?>
 
 

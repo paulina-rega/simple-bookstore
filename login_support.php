@@ -31,7 +31,6 @@
   function register_user($login, $email, $password, $conn) {
     $pass = password_hash($password, PASSWORD_DEFAULT);
 
-    // TUTAJ SKONCZONE
     $sql = "INSERT INTO user (login, email, usr_password) VALUES ('".$login."', '". $email . "', '".$pass."');";
     $register = $conn->query($sql);
     if($register) {
@@ -94,7 +93,6 @@
 
       foreach ($cart as $item) {
         $sql = "INSERT INTO order_product (user_order_id, product_id, quantity) VALUES (".$order_id.", ".$item['id'].", ".$item['quantity'].");";
-      //   $sql = "INSERT INTO order_product (user_order_id, product_id, quantity) VALUES ('".$user_id."', '".$item['id']."', '".$item['quantity']."');";
          $result = $conn->query($sql);
          if ($result) {
            echo "<p>udało sie</p>";
