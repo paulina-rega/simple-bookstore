@@ -3,8 +3,7 @@ include 'session_support.php';
 include 'database_connection.php';
 include 'login_support.php';
 init_cart();
-
-
+check_if_user_is_logged($_SESSION["user"]);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,7 +11,7 @@ init_cart();
 <head>
 <title> Czytelnia </title>
 <meta http-equiv="Content-type" content="text/html; charset=utf8">
-<meta name="Czytelnia" content=" [wstaw tu opis strony] "> <meta name="Keywords" content=" [wstaw tu slowa kluczowe] "> <meta name="Author" content=" [dane autora] ">
+<meta name="Czytelnia" content=" Czytelnia. Księgarnia internetowa "> <meta name="Keywords" content="książki, księgarnia, sklep internetowy"> <meta name="Author" content="Paulina Rega">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -35,8 +34,7 @@ init_cart();
             else {
               echo "<h4>Ale przeciez Twój koszyk był pusty :( </h4>";
             }
-
-             ?>
+           ?>
 
         </div>
     </div>

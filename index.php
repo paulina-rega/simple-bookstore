@@ -3,21 +3,14 @@ include 'session_support.php';
 include 'database_connection.php';
 include 'login_support.php';
 init_cart();
-
-
 ?>
-
-
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title> Czytelnia </title>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-
-<meta name="Czytelnia" content=" [wstaw tu opis strony] ">
-<meta name="Keywords" content=" [wstaw tu slowa kluczowe] "> <meta name="Author" content=" [dane autora] ">
+<meta name="Czytelnia" content=" Czytelnia. Księgarnia internetowa "> <meta name="Keywords" content="książki, księgarnia, sklep internetowy"> <meta name="Author" content="Paulina Rega">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -28,7 +21,6 @@ init_cart();
         <div class="menu">
             <ul>
                 <li><a href="cart-details.php">Koszyk</a></li>
-
                 <?php
                   if (!isset($_SESSION['user'])) {
                     echo '<li><a href="register.php">Zarejestruj się</a></li>';

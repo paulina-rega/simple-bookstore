@@ -13,7 +13,7 @@ unset($_SESSION['to_edit']);
 <head>
 <title> Czytelnia </title>
 <meta http-equiv="Content-type" content="text/html; charset=iso- 8859-2">
-<meta name="Czytelnia" content=" [wstaw tu opis strony] "> <meta name="Keywords" content=" [wstaw tu slowa kluczowe] "> <meta name="Author" content=" [dane autora] ">
+<meta name="Czytelnia" content=" Czytelnia. Księgarnia internetowa "> <meta name="Keywords" content="książki, księgarnia, sklep internetowy"> <meta name="Author" content="Paulina Rega">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -74,15 +74,6 @@ unset($_SESSION['to_edit']);
             <form method="POST">
               <input type="submit" name="button-add"  value="Dodaj produkt" />
             </form>
-
-
-
-
-
-
-
-
-
         </div>
         </div>
     </div>

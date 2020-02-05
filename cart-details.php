@@ -9,9 +9,8 @@ init_cart();
 <head>
 <title> Czytelnia </title>
 <meta http-equiv="Content-type" content="text/html; charset=utf8">
-<meta name="Czytelnia" content=" [wstaw tu opis strony] "> <meta name="Keywords" content=" [wstaw tu slowa kluczowe] "> <meta name="Author" content=" [dane autora] ">
+<meta name="Czytelnia" content=" Czytelnia. Księgarnia internetowa "> <meta name="Keywords" content="książki, księgarnia, sklep internetowy"> <meta name="Author" content="Paulina Rega">
 <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 <body>
     <div class="container">
@@ -37,13 +36,10 @@ init_cart();
 
 
           <?php
-
            if (sizeof($_SESSION['cart'])<1) {
              echo '<p class="empty-cart-msq"><br/><br/><br/><br/>Koszyk jest pusty!</p>';
            }
            else {
-
-
              echo '<table class ="table-cart cart-margin">';
              echo '<tr><td colspan="5"><h3 class="cart-title"><br/><br/>Koszyk</h3></td></tr>';
 
@@ -56,8 +52,6 @@ init_cart();
                    book_minus($_POST['book-id']);
                  }
              }
-
-
 
               echo '<tr class="info">
               <td><p></p></td>
@@ -91,10 +85,8 @@ init_cart();
                echo '<td>'.$total_amount.' zł</td></tr>';
                echo '<tr><td colspan="6"><a href="order-page.php" class="order-page-link"> Złóż zamówienie </a></td></tr>';
                echo '</table>';
-
            }
         ?>
-
 
 
         </div>

@@ -6,7 +6,6 @@ function init_cart() {
   }
   if (empty($_SESSION))  {
     $_SESSION['cart'] = array();
-
   };
 }
 
@@ -19,13 +18,11 @@ function init_admin_session() {
 }
 
 
-
 function book_plus($book_id) {
   $_SESSION['cart'][$book_id]['quantity']++;
   header("Refresh:0");
-
-
 }
+
 
 function book_minus($book_id) {
   if ($_SESSION['cart'][$book_id]['quantity']>1) {
@@ -38,4 +35,4 @@ function book_minus($book_id) {
   }
 }
 
- ?>
+?>

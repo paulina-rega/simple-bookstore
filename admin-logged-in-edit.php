@@ -12,7 +12,7 @@ check_if_admin_is_logged($_SESSION["user"]);
 <head>
 <title> Czytelnia </title>
 <meta http-equiv="Content-type" content="text/html; charset=iso- 8859-2">
-<meta name="Czytelnia" content=" [wstaw tu opis strony] "> <meta name="Keywords" content=" [wstaw tu slowa kluczowe] "> <meta name="Author" content=" [dane autora] ">
+<meta name="Czytelnia" content=" Czytelnia. Księgarnia internetowa "> <meta name="Keywords" content="książki, księgarnia, sklep internetowy"> <meta name="Author" content="Paulina Rega">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -29,12 +29,6 @@ check_if_admin_is_logged($_SESSION["user"]);
           <div>
             <h3>Część administracyjna</h3>
             <?
-
-
-
-
-
-
             $conn = open_connection();
             $sql = 'SELECT * FROM book WHERE id_book="'.$_SESSION['to_edit'].'";';
             $result = $conn->query($sql);
@@ -80,7 +74,6 @@ check_if_admin_is_logged($_SESSION["user"]);
               else {
                 echo "Ups, coś poszło nie tak.";
               }
-
             }
 
             if ($result->num_rows == 1) {
@@ -116,15 +109,7 @@ check_if_admin_is_logged($_SESSION["user"]);
             else {
               echo "Cos poszlo nie tak!";
             }
-
-
             ?>
-
-
-
-
-
-
         </div>
         </div>
     </div>

@@ -1,12 +1,10 @@
 /* INDEX and generic */
 
-
 body {
     font-family: sans-serif;
     text-align: center;
     margin-bottom: 200px;
 }
-
 
 .container {
 display: grid;
@@ -24,16 +22,15 @@ grid-row-gap: 0px;
     height: 150px;
 }
 
-
 .title a{
     opacity: 1;
-
 }
 
 .menu {
     grid-area: 2 / 2 / 6 / 3;
     text-align: left;
 }
+
 a {
     text-decoration: none;
     color: inherit;
@@ -48,14 +45,11 @@ a:hover {
     list-style-type:none;
     margin-top: 1em;
     font-size: 0.7em;
-
 }
 
 .menu li a {
   padding: 2em;
 }
-
-
 
 .main {
     grid-area: 2 / 1 / 6 / 2;
@@ -65,9 +59,6 @@ a:hover {
     align-items: baseline;
     align-content: space-between;
 }
-
-
-
 
 .book-box {
     min-width: 30%;
@@ -80,8 +71,6 @@ a:hover {
     display: block;
     color: #007D99;
     padding: 0.5em;
-
-
 }
 
 .book-box img {
@@ -114,7 +103,6 @@ a:hover {
 
 /* BOOK DETAILS */
 
-
 .image-box {
 
     width: 30%;
@@ -125,19 +113,16 @@ a:hover {
     height: 350px;
 }
 
-
 .info-box {
     width: 50%;
     text-align: left;
     align-self: flex-start;
     margin-top: 2em;
-
 }
 
 .author {
     opacity: 0.6;
 }
-
 
 .info-box .price {
     opacity: 0.6
@@ -150,14 +135,11 @@ a:hover {
     float: right;
 }
 
-
 .info-table-1 {
     padding-right: 2em;
     opacity: 0.8;
     text-align: right;
 }
-
-
 
 .add-to-basket {
     font-size: 0.9em;
@@ -190,7 +172,6 @@ a:hover {
   padding: 0.4em;
 }
 
-
 .table-cart tr {
     padding-bottom: 100px;
 }
@@ -201,8 +182,6 @@ a:hover {
   padding: 10px;
 }
 
-
-
 .cart-title {
   text-align: left;
   position: relative;
@@ -212,8 +191,6 @@ a:hover {
 .book-quantity {
   padding: 10px;
 }
-
-
 
 .empty-cart-msq{
   opacity: 0.6;
@@ -242,7 +219,6 @@ table .info {
   text-align: left;
 }
 
-
 .order-form input {
   opacity: 0.8;
   border: none;
@@ -256,15 +232,10 @@ table .info {
   border-color: #FEC65F;
 }
 
-
-
 .submit-button {
   border: none;
   margin-top: 20px;
-
 }
-
-
 
 
 /* ADMIN */
@@ -292,11 +263,10 @@ table .info {
     margin-right: 15%;
     margin-top: 1em;
     padding: 0.3em;
-}
+  }
 
     .book-box img {
         height: 150px;
     }
-
-
+    
 }

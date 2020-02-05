@@ -78,14 +78,10 @@
       $address = $name."; ".$address1."; ".$address2;
       $number = $_POST['telephone'];
 
-
       date_default_timezone_set('Europe/Berlin');
       $date = date('m/d/Y h:i:s a', time());
       //echo $date;
       $sql = "INSERT INTO user_order (user_id, telephone, address, order_time) VALUES ('".$user_id."', '".$number."', '". $address."', '".$date."');";
-
-
-
 
       $created_order = $conn->query($sql);
 
@@ -95,7 +91,6 @@
           $row = $order_id->fetch_assoc();
           $order_id = $row['user_order_id'];
         }
-
 
       foreach ($cart as $item) {
         $sql = "INSERT INTO order_product (user_order_id, product_id, quantity) VALUES (".$order_id.", ".$item['id'].", ".$item['quantity'].");";
@@ -109,21 +104,5 @@
          }
          echo $sql;
       }
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  ?>

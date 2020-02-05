@@ -12,9 +12,9 @@
 
       return $connection;
   }
-
   function close_connection($connection)
   {
     $connection -> close();
   }
+
 ?>
